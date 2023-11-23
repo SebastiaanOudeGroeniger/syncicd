@@ -20,6 +20,25 @@
 		"syn-cicd-WorkspaceDefaultStorage_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://samdfm10databricks.dfs.core.windows.net"
+		},
+		"AutoResolveIntegrationRuntime_properties_typeProperties_computeProperties": {
+			"type": "object",
+			"defaultValue": {
+				"location": "AutoResolve",
+				"dataFlowProperties": {
+					"computeType": "General",
+					"coreCount": 8,
+					"timeToLive": 0
+				}
+			}
+		},
+		"MPEAzureSQL_properties_privateLinkResourceId": {
+			"type": "string",
+			"defaultValue": "/subscriptions/626e167a-05c4-420f-93db-f23807630454/resourceGroups/syn-cicd/providers/Microsoft.Sql/servers/sqb-sql-cicd"
+		},
+		"MPEAzureSQL_properties_groupId": {
+			"type": "string",
+			"defaultValue": "sqlServer"
 		}
 	},
 	"variables": {
@@ -34,6 +53,7 @@
 				"activities": [
 					{
 						"name": "Wait1",
+						"description": "3hj",
 						"type": "Wait",
 						"dependsOn": [],
 						"userProperties": [],
@@ -118,14 +138,7 @@
 			"properties": {
 				"type": "Managed",
 				"typeProperties": {
-					"computeProperties": {
-						"location": "AutoResolve",
-						"dataFlowProperties": {
-							"computeType": "General",
-							"coreCount": 8,
-							"timeToLive": 0
-						}
-					}
+					"computeProperties": "[parameters('AutoResolveIntegrationRuntime_properties_typeProperties_computeProperties')]"
 				},
 				"managedVirtualNetwork": {
 					"type": "ManagedVirtualNetworkReference",
@@ -148,8 +161,8 @@
 			"type": "Microsoft.Synapse/workspaces/managedVirtualNetworks/managedPrivateEndpoints",
 			"apiVersion": "2019-06-01-preview",
 			"properties": {
-				"privateLinkResourceId": "/subscriptions/626e167a-05c4-420f-93db-f23807630454/resourceGroups/syn-cicd/providers/Microsoft.Sql/servers/sqb-sql-cicd",
-				"groupId": "sqlServer"
+				"privateLinkResourceId": "[parameters('MPEAzureSQL_properties_privateLinkResourceId')]",
+				"groupId": "[parameters('MPEAzureSQL_properties_groupId')]"
 			},
 			"dependsOn": [
 				"[concat(variables('workspaceId'), '/managedVirtualNetworks/default')]"

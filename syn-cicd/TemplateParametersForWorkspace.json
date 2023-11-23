@@ -13,6 +13,22 @@
 		},
 		"syn-cicd-WorkspaceDefaultStorage_properties_typeProperties_url": {
 			"value": "https://samdfm10databricks.dfs.core.windows.net"
+		},
+		"AutoResolveIntegrationRuntime_properties_typeProperties_computeProperties": {
+			"value": {
+				"location": "AutoResolve",
+				"dataFlowProperties": {
+					"computeType": "General",
+					"coreCount": 8,
+					"timeToLive": 0
+				}
+			}
+		},
+		"MPEAzureSQL_properties_privateLinkResourceId": {
+			"value": "/subscriptions/626e167a-05c4-420f-93db-f23807630454/resourceGroups/syn-cicd/providers/Microsoft.Sql/servers/sqb-sql-cicd"
+		},
+		"MPEAzureSQL_properties_groupId": {
+			"value": "sqlServer"
 		}
 	}
 }
