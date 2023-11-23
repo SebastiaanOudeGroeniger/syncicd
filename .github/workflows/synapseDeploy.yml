@@ -50,12 +50,6 @@ jobs:
           # Install Az PowerShell module
           pwsh -Command "Install-Module -Name Az -Repository PSGallery -Force"
 
-    - name: Pre-run | Install Node.js on self-hosted runner
-      run: |
-        # Older version is necessary for the deploy task to work
-        curl -fsSL https://deb.nodesource.com/setup_14.x | sudo -E bash - &&\
-        sudo apt-get install -y nodejs
-
     - name: Pre-run | Azure login
       uses: Azure/login@v1
       with:
