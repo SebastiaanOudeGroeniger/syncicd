@@ -1,0 +1,7 @@
+{
+	"name": "MPEAzureSQL",
+	"properties": {
+		"privateLinkResourceId": "/subscriptions/626e167a-05c4-420f-93db-f23807630454/resourceGroups/syn-cicd/providers/Microsoft.Sql/servers/sqb-sql-cicd",
+		"groupId": "sqlServer"
+	}
+}
