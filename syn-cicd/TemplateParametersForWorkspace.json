@@ -1,0 +1,18 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"workspaceName": {
+			"value": "syn-cicd"
+		},
+		"AzureSqlDatabase1_connectionString": {
+			"value": "Integrated Security=False;Encrypt=True;Connection Timeout=30;Data Source=sqb-sql-cicd.database.windows.net;Initial Catalog=seb-sql-cicd"
+		},
+		"syn-cicd-WorkspaceDefaultSqlServer_connectionString": {
+			"value": "Integrated Security=False;Encrypt=True;Connection Timeout=30;Data Source=tcp:syn-cicd.sql.azuresynapse.net,1433;Initial Catalog=@{linkedService().DBName}"
+		},
+		"syn-cicd-WorkspaceDefaultStorage_properties_typeProperties_url": {
+			"value": "https://samdfm10databricks.dfs.core.windows.net"
+		}
+	}
+}
