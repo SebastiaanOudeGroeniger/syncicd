@@ -62,7 +62,7 @@ jobs:
         enable-AzPSSession: true 
 
     - name: Synapse workspace deployment
-      uses: Azure/SebastiaanOudeGroeniger@V1.7.0
+      uses: SebastiaanOudeGroeniger/Synapse-workspace-deployment
       with:
         TargetWorkspaceName: ${{ vars.SYNAPSE_WS_NAME }}
         ArtifactsFolder: './synapse-workspace'
